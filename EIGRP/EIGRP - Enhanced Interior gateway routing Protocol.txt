@@ -1,0 +1,56 @@
+EIGRP - Enhanced Interior gateway routing protocols
+
+it was a cisco proprietary protocol till 2012 later it became standard protocol
+
+it uses Dual algorithm [Diffusing update algo]
+
+it supports 100 hop counts maximum 255
+
+it supports equal metric and unequal metric Load balancing
+
+it  does not send periodic updates unlike RIP.
+
+it uses Hello packet for neighbor discovery 
+
+Hello packets are sent  every  5 seconds to 224.0.0.10 
+
+Hold time is 15 Seconds.
+
+EIGRP maintains four tables
+	Neighbor Table	: Stores Neighbor information
+	Topology Table : Stores Successor routes and Feasible Successor Routes
+	Routing Table	: Stores only Successor Routes
+	Interface Table : Stores EIGRP Enabled interfaces.
+
+EIGRP Terminology
+
+	Successor - is a Next hop router in successor route.
+
+	Successor route - Primary Route which has Lowest metric  to destination.
+
+	Feasible successor route - Backup route which meets Feasibility condition
+
+	Advertise Distance - Metric from neighbor to Destination Network.
+
+	Feasible Distance -  Total Metric from local router to Destination
+
+	Autonomous system -  Collection of Routers or networks within same administration .
+					   Autonomous system number range is 1-65535
+	
+
+Fessibility Condition is Advertise distance of Secondary route should be less than feasible distance of Primary Route . then only eigrp considers that route as Fessible successor and install it in Topology Table.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
