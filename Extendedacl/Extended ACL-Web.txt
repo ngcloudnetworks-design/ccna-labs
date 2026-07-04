@@ -1,0 +1,63 @@
+Extended ACL
+
+-------------------------
+
+is used to control traffic based on source IP , Destination IP and Port numbers.
+
+is configured close to Source .
+
+Extended ACL number range is 100- 199
+
+
+Requirements
+
+
+		Source IP
+		Destination IP
+		Protocol - IP , TCP, UDP, ICMP
+		Service
+
+Syntax :  
+
+
+	access-list <acl number> <action> <Protocol> <source IP> <wildcard mask> <destination IP> <wildcard mask> <operator> <Port number>
+
+
+Operators are  > , < , eq 
+
+
+
+
+TASK 1 - 
+
+
+192.168.2.2 user should not be able to access 192.168.3.100
+
+
+access-list 100 deny ip host 192.168.2.2  host 192.168.3.100
+access-list 100 permit ip any any
+
+Interface f0/0 
+   ip access-group 100 in
+
+int f1/0
+ ip access-group 100 out
+
+
+TASK 2
+
+192.168.2.2 user should not be able to access web service which is running on 192.168.3.100
+
+Access-list 100 deny tcp host 192.168.2.2 host 192.168.3.100 eq 80
+access-list 100 permit ip any any
+
+int f0/0
+ ip access-group 100 in
+
+
+
+
+
+
+
+
